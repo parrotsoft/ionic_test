@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule' },
   { path: 'principal', loadChildren: './principal/principal.module#PrincipalPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'detalle-cantidato/:id', loadChildren: './detalle-cantidato/detalle-cantidato.module#DetalleCantidatoPageModule' },
 ];
 
 @NgModule({

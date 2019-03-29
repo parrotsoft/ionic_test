@@ -51,6 +51,6 @@ export class PrincipalPage implements OnInit {
   }
 
   onOpenPerfil(row) {
-    alert(row);
+    // alert(row);
   }
 }

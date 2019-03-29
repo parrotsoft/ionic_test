@@ -31,7 +31,7 @@
 
 <ion-content>
   <ion-router-outlet main></ion-router-outlet>
-  <ion-item *ngFor="let row of candidatos" (click)="onOpenPerfil(row.id)">
+  <ion-item *ngFor="let row of candidatos" [routerLink]="['/detalle-cantidato/'+row.id+'']">
     <ion-avatar slot="start">
       <img src="{{ row.get('avatar')}}">
     </ion-avatar>
