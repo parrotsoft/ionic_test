@@ -49,4 +49,8 @@ export class PrincipalPage implements OnInit {
       // console.log(JSON.stringify(resp));
     });
   }
+
+  onOpenPerfil(row) {
+    alert(row);
+  }
 }
