@@ -1,5 +1,8 @@
 {
   "name": "myParse",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

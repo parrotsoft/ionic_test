@@ -1,0 +1,40 @@
+<ion-menu side="start" menuId="first">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-avatar>
+        <img src="../assets/images/perfil.png">
+      </ion-avatar>
+      <ion-title>Mi Aplicación</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item [routerLink]="['/perfil']"><ion-icon name="person"></ion-icon> Perfil</ion-item>
+      <ion-item><ion-icon name="speedometer"></ion-icon> Rutas</ion-item>
+      <ion-item><ion-icon name="text"></ion-icon>Mensajes</ion-item>
+      <ion-item (click)="onSalir()"><ion-icon ios="ios-exit" md="md-exit"></ion-icon>Salir</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>Principal</ion-title>
+    <ion-buttons slot="start" (click)="onOpenMenu()">
+      <ion-button>
+        <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-router-outlet main></ion-router-outlet>
+  <ion-item *ngFor="let row of candidatos">
+    <ion-avatar slot="start">
+      <img src="{{ row.get('avatar')}}">
+    </ion-avatar>
+    <ion-label>{{ row.get('Nombre') }}</ion-label>
+  </ion-item>
+</ion-content>

@@ -1,14 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title text-center>
+      Inicio de Sesión
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <form [formGroup]="formLogin">
+      <ion-input placeholder="User Name" formControlName="username"></ion-input>
+      <ion-input placeholder="Password" formControlName="password"></ion-input>
+      <ion-button (click)="onEnter()" expand="full" [disabled]="formLogin.invalid">Entrar</ion-button>
+    </form>
+    <ion-button expand="full" [routerLink]="['/registro']">Registrar</ion-button>
   </div>
 </ion-content>

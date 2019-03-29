@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Parse } from 'parse';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {LoadingController, NavController, ToastController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-registro',
+  templateUrl: './registro.page.html',
+  styleUrls: ['./registro.page.scss'],
 })
-export class HomePage {
+export class RegistroPage implements OnInit {
 
   private parseAppId = '0AW7Hs92kjmBalqNDkbRtGChlRFF0uOu09pUxiFU';
   private parseServerUrl = 'https://parseapi.back4app.com/';
   private parse_js_key = 'Hp1MevzRfVbsj5oJbIZxVk6jBxFuLCcwz1RukWtu';
 
-  formLogin: FormGroup;
+  formRegistro: FormGroup;
 
   constructor( private fb: FormBuilder, public loadingController: LoadingController,
                public toastController: ToastController, private nav: NavController) {
     this.parseInitialize();
     this.buildForm();
+  }
+
+  ngOnInit() {
   }
 
   private parseInitialize() {
@@ -28,13 +31,14 @@ export class HomePage {
   }
 
   private buildForm() {
-    this.formLogin = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(6)]],
+    this.formRegistro = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  async onEnter() {
+  async onSave() {
     const loading = await this.loadingController.create(
         {
           message: 'Cargando...',
@@ -42,15 +46,23 @@ export class HomePage {
         }
     );
     await loading.present();
-    Parse.User.logIn(this.formLogin.controls['username'].value, this.formLogin.controls['password'].value).then(async (res) => {
-      this.nav.navigateRoot('principal');
+    const user = new Parse.User();
+    user.save(this.formRegistro.value).then( async (res) => {
+      const toast = await this.toastController.create({
+            message: user.get('username'),
+            duration: 2000
+          }
+      );
+      toast.present();
+      this.nav.back();
     }).catch( async (error) => {
       const toast = await this.toastController.create({
-        message: 'Code: ' + error.code + ' - ' + error,
-        duration: 2000
-      });
+            message: 'Code: ' + error.code + '- ' + error,
+            duration: 2000
+          }
+      );
       toast.present();
-    }).finally( async () => {
+    }).finally(async () => {
       await loading.onDidDismiss();
     });
   }

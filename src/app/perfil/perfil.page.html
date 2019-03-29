@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img style="width: 50%" src="../assets/images/perfil.png"></ion-img>
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="formPerfil">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input  placeholder="Nombre" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+      <ion-input placeholder="Apellidos" formControlName="apellidos"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input placeholder="Telefono" formControlName="telefono"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input placeholder="Correo" formControlName="correo"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" (click)="onGuardar()">Guardar</ion-button>
+    </form>
+  </ion-grid>
+</ion-content>
