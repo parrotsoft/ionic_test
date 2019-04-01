@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController, NavParams} from '@ionic/angular';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-detalle-cantidato',
@@ -8,10 +8,10 @@ import {NavController, NavParams} from '@ionic/angular';
 })
 export class DetalleCantidatoPage implements OnInit {
 
-  constructor(public navParams: NavParams) { }
+  constructor(private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    alert(this.navParams.get('id'));
+      console.log(this.activateRoute.snapshot.params.id);
   }
 
 }
