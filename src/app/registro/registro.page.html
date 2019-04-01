@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -10,10 +10,21 @@
 <ion-content>
   <div class="ion-padding">
     <form [formGroup]="formRegistro">
-      <ion-input placeholder="User name" formControlName="username"></ion-input>
-      <ion-input placeholder="Email" formControlName="email"></ion-input>
-      <ion-input placeholder="Password" formControlName="password"></ion-input>
-      <ion-button (click)="onSave()" [disabled]="formRegistro.invalid">Save</ion-button>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input placeholder="User name" formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input placeholder="Password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="onSave()" expand="block" [disabled]="formRegistro.invalid">Save</ion-button>
     </form>
   </div>
 </ion-content>
