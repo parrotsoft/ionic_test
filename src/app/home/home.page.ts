@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Parse } from 'parse';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {LoadingController, NavController, ToastController} from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomePage {
   formLogin: FormGroup;
 
   constructor( private fb: FormBuilder, public loadingController: LoadingController,
-               public toastController: ToastController, private nav: NavController) {
+               public toastController: ToastController, private nav: NavController,
+               private _ServiceAuth: AuthService) {
     this.parseInitialize();
     this.buildForm();
   }
