@@ -1,21 +1,15 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title text-center>
-      Inicio de Sesión
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+    <div class="logo-header">
+    </div>
+
   <div class="ion-padding">
     <form [formGroup]="formLogin">
       <ion-list>
         <ion-item>
-          <ion-label position="floating">Username</ion-label>
           <ion-input placeholder="User Name" formControlName="username"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
           <ion-input placeholder="Password" formControlName="password"></ion-input>
         </ion-item>
       </ion-list>
@@ -23,4 +17,20 @@
     </form>
     <ion-button expand="block" [routerLink]="['/registro']">Registrar</ion-button>
   </div>
+  <ion-grid text-center>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button class="btn-facebook" color="#FFF">
+          <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+          ENTRAR
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="btn-google" color="#FFF">
+          <ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon>
+          ENTRAR
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,1 +1,22 @@
+ion-content {
+  --background: url('../../assets/images/espacio.jpg') no-repeat  center;
+}
+
+.logo-header {
+  margin-top: 1em;
+  background: url('../../assets/images/logo.png') no-repeat center;
+  height: 200px;
+}
+
+ion-button {
+  color: #ffffff;
+}
+
+.btn-facebook {
+  background-color: #475A94;
+}
+
+.btn-google {
+  background-color: #F53D3D;
+}
 
